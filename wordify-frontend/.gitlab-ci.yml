@@ -1,0 +1,76 @@
+stages:
+  - build
+  - deploy
+
+variables:
+  AWS_REGION: eu-north-1
+  AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+  AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+  S3_BUCKET: $S3_BUCKET
+  CLOUDFRONT_DISTRIBUTION_ID: $CLOUDFRONT_DISTRIBUTION_ID
+
+build:
+  stage: build
+  image: node:18
+  script:
+    - touch .env
+    - echo "VITE_BACKEND_URL=$VITE_BACKEND_URL" >> .env
+    - npm install --legacy-peer-deps
+    - npm run build
+  artifacts:
+    paths:
+      - dist  
+  only:
+    - main  
+
+deploy:
+  stage: deploy
+  image: 
+    name: amazon/aws-cli  
+    entrypoint: [""]  
+
+  before_script:
+    - aws --version  
+    - echo "Configuring AWS CLI..."
+    - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
+    - aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
+    - aws configure set default.region $AWS_REGION
+
+  script:
+    - echo "Deploying to AWS S3 and CloudFront"
+    
+    - |
+      if [ -z "$AWS_REGION" ]; then
+        echo "ERROR: AWS_REGION is not set"
+        exit 1
+      else
+        echo "AWS_REGION: $AWS_REGION"
+      fi
+    
+    - |
+      if [ -z "$S3_BUCKET" ]; then
+        echo "ERROR: S3_BUCKET is not set"
+        exit 1
+      else
+        echo "S3_BUCKET: $S3_BUCKET"
+      fi
+
+    - |
+      if [ -z "$CLOUDFRONT_DISTRIBUTION_ID" ]; then
+        echo "ERROR: CLOUDFRONT_DISTRIBUTION_ID is not set"
+        exit 1
+      else
+        echo "CLOUDFRONT_DISTRIBUTION_ID: $CLOUDFRONT_DISTRIBUTION_ID"
+      fi
+    
+    - aws --version
+    
+    - ls -la dist/  
+    
+    - echo "Syncing to S3..."
+    - aws s3 sync dist/ s3://$S3_BUCKET/ --delete  
+    
+    - echo "Creating CloudFront invalidation..."
+    - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths "/*"
+  only:
+    - main  

@@ -1,0 +1,30 @@
+@import '../../app/styles/index.styl'
+
+.modal-set-settings
+    padding: 0
+    border-radius: 15px
+    background: var(--white)
+
+    &-icon-and-title
+        gap .75rem
+
+    header
+        padding: 1.5rem
+        border-bottom: 1px solid var(--black-15)
+
+        & > .modal-set-settings-icon-wrapper > .icon
+            fill: var(--grey)
+
+    &-icon-container
+        padding: .375rem
+        border-radius: 4px
+        background: var(--grey-light)
+    
+    &-container
+        & > .modal-window
+            width 100%
+            max-width: 28.75rem
+
+            @media screen and (max-width sm)
+                max-width: auto
+                width 90vw

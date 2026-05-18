@@ -1,0 +1,74 @@
+@import "../../app/styles/index.styl"
+
+.profile
+    height: 100%
+    display: grid
+    row-gap: 1rem
+    column-gap: 4.5rem
+    padding: 4.0625rem 0
+    grid-template-rows: repeat(2, 1fr)
+    grid-template-columns: repeat(2, 1fr)
+
+    @media (max-width: xxl_half)
+        grid-template-rows: repeat(4, 1fr)
+        grid-template-columns: 1fr
+
+    &-progress-pieces-container
+        gap: 4.5rem
+
+    &-progress-container
+        gap: 1.375rem
+
+        & > .profile-progress-pieces-container
+            @media (max-width: xxl_half)
+                justify-content: flex-start
+
+            @media (max-width: md)
+                gap: .5rem
+                justify-content: space-between
+                
+        
+    &-avatar-and-statistic
+        gap: 2rem
+        align-self: flex-start
+        & > div
+            gap: 2rem
+
+            @media (max-width: sm)
+                flex-direction: column
+
+    &-statistic-and-name
+        gap: 2.25rem
+
+    &-statistic-container
+        gap: 2.5rem
+        display: flex
+        align-items: center
+        justify-content: center
+
+    &-personal-info-form
+        gap: 1.5rem
+        &-input
+            gap: .5rem
+        & > button
+            font-size: 1rem
+            align-self: flex-start
+            padding: 0.68rem 3.625rem
+
+    &-personal-info-form-container
+        gap: 0.8125rem
+
+    &-achievements
+        gap: 2.75rem
+        &-container
+            gap: 1.5rem
+
+            & > button
+                width fit-content
+    
+    &-friends-container
+        gap: 1.25rem
+        padding-bottom: 4.0625rem 
+
+        & > button
+            width fit-content

@@ -1,0 +1,1 @@
+export { FetchImageForTerm } from './fetchImageForTerm';

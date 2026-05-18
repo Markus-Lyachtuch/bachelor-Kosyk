@@ -1,0 +1,22 @@
+@import './breakpoints.styl'
+@import './utils.styl'
+@import './themes/light.styl'
+
+.app
+    --default-shadow 0 0 10px 0 rgba(0, 0, 0, 0.25) 
+    --box-shadow 0 4px 4px 0px rgba(0, 0, 0, 0.25)
+    --vertical-box-shadow 0px 8px 8px 8px rgba(0,0,0,0.25)
+    --box-shadow-blurred 4px 4px 20px 0 rgba(0, 0, 0, 0.25)
+    --box-shadow-light 0 2px 8px rgba(0, 0, 0, 0.08)
+
+    svg
+        transition: fill 0.2s ease-in-out
+        
+.icon
+    fill: var(--black)
+
+.icon-path-stroke-change path
+    stroke: var(--black)
+
+.icon-path-fill-change path 
+    fill: var(--black)

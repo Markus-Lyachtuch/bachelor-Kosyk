@@ -1,0 +1,46 @@
+@import "../../../app/styles/index.styl"
+
+.image-placeholder
+    gap: 4px
+    font-weight: 600
+    user-select: none
+    white-space nowrap
+    font-size: .625rem
+    border-radius: 10px
+    padding: .375rem .625rem
+    border 1px dotted var(--black)
+    transition: color .3s ease-in-out
+
+    &-wrapper
+        min-width 6.25rem
+        min-height 3.375rem
+
+        @media screen and (max-width: sm)
+            min-width auto
+
+    &-selected
+        color: var(--primary)
+        border 1px dotted var(--primary)
+
+        &-img
+            border-radius: 10px
+            object-fit: cover
+            height 3.375rem
+            width 6.25rem
+
+            @media screen and (max-width: sm)
+                width 5.3125rem
+
+            &-wrapper
+                position relative
+
+            &-delete-block
+                background: var(--black-25)
+                border-radius: 5px
+                position absolute
+                padding: 2px 4px
+                right: 3%
+                top 3%
+
+                & > svg > path
+                    stroke: var(--white)

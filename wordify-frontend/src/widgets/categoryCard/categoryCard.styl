@@ -1,0 +1,37 @@
+@import '../../app/styles/index.styl'
+
+$rec-shadow = 0 4px 12px rgba(0, 0, 0, 0.05)
+
+.rec-category-item
+  flex 0 0 11.25vw
+  background white
+  border-radius 24px
+  min-width 10.125rem
+  align-items center
+  gap 8px
+  box-shadow $rec-shadow
+  border 1px solid #f0f0f0
+  cursor pointer
+  transition all 0.2s
+  padding 1rem 1.875rem .5625rem 1.875rem
+  
+  @media (max-width: md)
+    min-width 8rem
+    padding 12px 20px
+  @media (max-width: sm)
+    min-width 6.5rem
+    padding 10px 15px
+
+  &.active
+    background var(--secondary)
+
+  .rec-cat-icon
+    @media (max-width: md)
+      & svg
+        width 1.5rem
+        height: 1.5rem
+  .rec-cat-name
+    font-size 1rem
+    font-weight 500
+    @media (max-width: md)
+      font-size 0.75rem

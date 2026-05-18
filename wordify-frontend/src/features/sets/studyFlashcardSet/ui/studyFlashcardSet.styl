@@ -1,0 +1,78 @@
+@import "../../../../app/styles/index.styl";
+
+.study-set-page
+    &-flashcard
+        box-shadow: var(--default-shadow)
+        max-width: 50.875rem
+        border-radius: 15px
+        padding: 3.25rem
+        flex-wrap: wrap
+        margin: 0 auto
+        height: 19rem
+        width 100%
+        gap: 2rem
+    
+        &-level-badge
+            &-trusted, &-level
+                font-weight: 600
+                border-radius: 20px
+
+            &-trusted
+                font-size: .875rem
+                color: var(--blue)
+                padding: .5rem .75rem
+                text-transform: capitalize
+                background: var(--light-blue)
+            
+            &-level
+                font-size: 1rem
+                color: var(--primary)
+                padding: .5rem .75rem
+                background: var(--secondary-light)
+
+            position absolute
+            gap: .5rem
+            top: 3.25rem
+            left: 3.25rem
+
+        @media screen and (max-width: lg)
+            height: 30rem
+
+        &-container
+            gap: 2rem
+            width 100%
+
+        &-btns
+            width 100%
+            margin: 0 auto
+            max-width: 36.9375rem
+
+            & > button
+                padding: .5rem
+
+                & > .icon
+                    fill: var(--white)
+
+        @media screen and (max-width: lg)
+            & > &-definition
+                flex: 0 0 100%
+                font-size: 1rem
+                text-align: center
+
+            & > &-img
+                width 75%
+                max-width: 20rem
+
+        &-definition
+            flex: 1
+            height: 9rem
+            overflow-y: auto
+            font-size: 1.125rem
+            line-height: 1.75rem
+
+        &-img
+            flex: 0 1 37%
+            max-width: 20rem
+            max-height: 13rem
+            object-fit: cover
+            border-radius: 20px

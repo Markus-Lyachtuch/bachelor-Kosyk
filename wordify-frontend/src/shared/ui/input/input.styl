@@ -1,0 +1,44 @@
+@import "../../../app/styles/index.styl"
+black = #000
+
+.input
+    width 100%
+
+    &-default
+        font-size: 1rem
+        font-weight: 500
+        border-radius: 5px
+        padding: 0.625rem 1rem
+        border: 1px solid var(--black-25)
+        &:placeholder
+            color: rgba(black, 0.5)
+    
+    &-study
+        padding: 1rem
+        font-size: 1rem
+        font-weight: 500
+        border-radius: 8px
+        background: var(--grey-light-2)
+        border: 1px solid var(--black-25)
+        &:placeholder
+            color: var(--grey)
+            font-size: 1rem
+
+    &-auth
+        border: none
+        outline: none
+        font-size: 1rem
+        font-weight: 500
+        color: rgba(black, 0.5)
+        padding-bottom: .375rem
+        transition: all .3s ease
+        border-bottom: 2px solid rgba(black, 0.25)
+        &:focus
+            border-bottom: 2px solid var(--primary)
+            &::placeholder
+                color: var(--primary)
+    &-error
+        font-size: 0.875rem
+        margin-top: 0.25rem
+        color: var(--error)
+        font-weight: 500

@@ -1,0 +1,44 @@
+.modal-set-rating
+    gap: .75rem
+    padding: 1rem 1.5rem 1.5rem 1.5rem
+    border-radius: 10px
+    background: var(--white)
+
+    &-container
+        & > .modal-wwindow
+            width 100%
+            max-width: 18.4375rem
+
+    &-stars
+        gap: .75rem
+        display: flex
+
+    &-star-selected
+        & > svg > path
+            fill: var(--yellow)
+    
+    &-star
+        & > svg > path
+            fill: var(--grey)
+
+    &-title-and-subtitle
+        width 100%
+        gap: .25rem
+
+    &-close
+        width 100%
+        display: flex
+        justify-content: flex-end
+
+        & > svg
+            cursor pointer
+
+    &-subtitle
+        font-size: .875rem
+        color: rgba(9,0,0,.5)
+
+    &-submit-btn
+        width 100%
+        padding: .375rem
+        max-width: 8.875rem
+        margin-top: .375rem

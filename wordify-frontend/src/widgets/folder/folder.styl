@@ -1,0 +1,38 @@
+@import '../../app/styles/index.styl'
+
+.folder
+    transition: background .2s ease-in-out
+    background: var(--grey-light)
+    flex: 0 0 10.4375rem
+    border-radius: 12px
+    font-size: .875rem
+    position relative
+    user-select: none
+    font-weight: 500
+    cursor pointer
+    gap: .75rem
+
+    @media screen and (max-width: lg)
+        flex: 1 0 10.4375rem
+        max-width: 15rem
+
+    &-dots-container
+        padding-right: .75rem
+
+    & > .popover
+        left: 0
+        z-index 2
+        top: 125%
+        & > .actionitem
+            &:hover
+                background: var(--grey)
+
+    &-icon-title-container
+        gap: .5rem
+
+    & > .actionitem
+        & > span
+            max-width: 4rem
+
+    &:hover
+        background: var(--grey)

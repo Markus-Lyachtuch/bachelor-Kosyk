@@ -1,0 +1,72 @@
+@import '../../../../app/styles/index.styl'
+
+.study-set-page
+    &-study-with-ai
+        max-width: 70vw
+        gap: 2.5rem
+        width 100%
+
+        @media screen and (max-width lg)
+            max-width: 56rem
+
+        &-title-block
+            gap: .75rem
+
+            p
+                font-size: 1rem
+                color var(--grey)
+
+        &-box-words
+            background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='12' ry='12' stroke='%235F3DC4' stroke-width='5' stroke-dasharray='2%2c 10' stroke-dashoffset='36' stroke-linecap='square'/%3e%3c/svg%3e");
+            border-radius: 12px;
+            flex-wrap: wrap
+            padding: 2rem
+            display: flex
+            width 100%
+            gap: 1rem
+
+            button
+                pointer-events: none
+
+            &-title
+                background: var(--white)
+                color: var(--primary)
+                padding: 0 .8rem
+                font-weight: 600
+                top: -10px
+            
+        &-box-sentences
+            border 1px solid var(--black-25)
+            border-radius: 12px
+            font-size: 1.125rem
+            line-height: 2.5
+            padding: 3rem
+
+            &-input-wrapper
+                display: inline-block
+
+                .icon
+                    transform: translateY(-50%)
+                    position: absolute
+                    right 5px
+                    top: 50%
+                
+                .icon-check
+                    fill: var(--green)
+                
+                .icon-x
+                    fill: var(--dark-red)
+
+            input
+                padding: .5rem
+                max-width: 10rem
+            
+            span
+                word-break: break-all
+                
+        &-check-btn
+            align-self: flex-end
+            gap: .5rem
+
+            .icon
+                fill: var(--white)

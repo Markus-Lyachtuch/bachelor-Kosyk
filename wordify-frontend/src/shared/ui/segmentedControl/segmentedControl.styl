@@ -1,0 +1,22 @@
+.segmented-control
+    border 1px solid var(--grey-light)
+    border-radius 4px
+    overflow hidden
+    width 100%
+
+.segmented-control-item
+    flex 1
+    padding 8px 0
+    font-size 14px
+    font-weight 500
+    color var(--black)
+    background var(--white)
+    transition all 0.2s
+    border-right 1px solid var(--grey-light)
+
+    &:last-child
+        border-right none
+
+    &.active
+        background var(--primary-light-2)
+        color var(--white)

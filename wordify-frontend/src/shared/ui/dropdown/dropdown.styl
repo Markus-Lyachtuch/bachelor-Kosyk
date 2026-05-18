@@ -1,0 +1,33 @@
+.dropdown
+    font-weight: 500
+    position relative
+
+    &-error-wrapper
+        gap: .25rem
+
+    &-select
+        font-size: 1rem
+        font-weight: 500
+        border-radius: 5px
+        padding: 0.625rem 1rem
+        border: 1px solid var(--grey)
+
+    &-placeholder
+        pointer-events: none
+
+    & > .popover
+        top: 125%
+        overflow-y: auto
+        max-height: 12.5rem
+
+    & .actionitem
+        font-size: 0.875rem
+
+        &-selected
+            background: var(--grey-light)
+
+        &:hover
+            background: var(--grey)
+
+    & .actionitem:not(:first-child)
+        border-top: 1px solid var(--grey)

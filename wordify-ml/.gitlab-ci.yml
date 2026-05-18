@@ -1,0 +1,56 @@
+stages:
+  - build-and-push
+  - deploy
+
+variables:
+  IMAGE_TAG: "${CI_COMMIT_SHA}"
+
+build_and_push:
+  stage: build-and-push
+  image: docker:24.0.7
+  services:
+    - docker:24.0.7-dind
+  before_script:
+    - apk add --no-cache aws-cli git
+    - |
+      if [ -z "$AWS_ACCOUNT_ID" ]; then
+        echo "ERROR: AWS_ACCOUNT_ID is not set."
+        exit 1
+      fi
+    - export ECR_REGISTRY="${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com"
+    - export IMAGE_URI="${ECR_REGISTRY}/${ECR_REPOSITORY}:${IMAGE_TAG}"
+    - echo "Logging into ECR:$ECR_REGISTRY"
+    - aws ecr get-login-password --region "$AWS_REGION" | docker login --username AWS --password-stdin "$ECR_REGISTRY"
+  script:
+    - echo "Building image:$IMAGE_URI"
+    - docker build --provenance=false -t "$IMAGE_URI" .
+    - echo "Pushing image to ECR..."
+    - docker push "$IMAGE_URI"
+  artifacts:
+    expire_in: 1 hour
+  only:
+    - main
+
+deploy:
+  stage: deploy
+  image:
+    name: amazon/aws-cli:2.15.14
+    entrypoint: [""]
+  before_script:
+    - yum install -y jq
+    - echo "Configuring AWS CLI..."
+    - aws configure set aws_access_key_id "$AWS_ACCESS_KEY_ID"
+    - aws configure set aws_secret_access_key "$AWS_SECRET_ACCESS_KEY"
+    - aws configure set default.region "$AWS_REGION"
+    - aws sts get-caller-identity || { echo "AWS credentials not configured properly."; exit 1; }
+    - echo "AWS CLI configured."
+  script:
+    - echo "Deploying image for commit ${CI_COMMIT_SHA}"
+    - IMAGE_URI="${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${ECR_REPOSITORY}:${CI_COMMIT_SHA}"
+    - echo "Using image $IMAGE_URI"
+    - aws lambda update-function-code --function-name ${LAMBDA_NAME} --image-uri $IMAGE_URI --region ${AWS_REGION}
+    - aws lambda wait function-updated --function-name ${LAMBDA_NAME} --region ${AWS_REGION}
+  dependencies:
+    - build_and_push
+  only:
+    - main

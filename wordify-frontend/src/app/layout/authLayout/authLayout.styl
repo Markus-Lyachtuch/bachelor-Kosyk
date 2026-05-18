@@ -1,0 +1,21 @@
+@import '../../styles/breakpoints.styl'
+
+.auth
+    gap: 3.125rem
+    padding-right: 2.875rem
+    &-left
+        height: inherit
+        flex: 0 1 56.04vw
+        img 
+            width: 100%
+            height: 100%
+            display: block
+            object-fit: cover
+        @media screen and (max-width: lg)
+            display: none
+    @media screen and (max-width: lg)
+        padding-left: 2.875rem
+    &-right
+        flex: 1
+        @media screen and (max-width: xl)
+            flex: 1 0 40vw

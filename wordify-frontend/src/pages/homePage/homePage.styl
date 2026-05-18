@@ -1,0 +1,113 @@
+@import '../../app/styles/index.styl'
+
+.home
+    height: inherit
+
+    &-recommended-slider .slider-container
+        gap: 2.22vw
+        padding: .9rem .9rem .9rem .5rem
+    &-my-learning-slider .slider-container
+        padding: .9rem .9rem .9rem .5rem
+        gap: 4.44vw
+    &-categories-slider .slider-container
+        gap: 1.52vw
+        padding: .9rem .9rem .9rem .5rem
+
+    &-section
+        gap: 1.71875vh
+
+        @media (max-width: sm)
+            gap: .2rem
+
+    &-input-container
+        width: 100%
+        margin-top .5rem
+        gap: .5rem
+        & > div
+            flex: 0 1 20.75rem
+
+.rec-dashboard-wrapper
+  margin 0 auto
+  max-width 100%
+  padding: 5.27vh 0
+  box-sizing border-box
+  gap: 5.85vh
+
+  @media (max-width: md)
+    gap: 1.5rem
+
+  & .main-left-title
+    @media (max-width: lg)
+      font-size 1.7rem
+    @media (max-width: md)
+      font-size 1.5rem
+    @media (max-width: sm)
+      font-size 1.3rem
+
+  & .rec-section-header .main-left-title
+    @media (max-width: sm)
+      order: 2
+
+.rec-section-header
+  display flex
+  justify-content space-between
+  align-items center
+  gap .625rem
+  @media (max-width: sm)
+    flex-direction: column
+    align-items: flex-start
+
+.rec-header-actions
+  gap 12px
+  display flex
+  flex-shrink 0
+  height: 2.5rem
+  align-items center
+  
+  & .title-primary
+    line-height: 1rem
+    font-size: 1.8rem
+
+  & .home-plus-popover.show
+    width 12rem
+
+  @media (max-width: md)
+    gap 8px
+  @media (max-width: sm)
+    gap 6px
+    order: 1
+    align-self: flex-end
+
+.home-plus-btn-wrapper
+  position relative
+
+.home-plus-popover
+  right 0
+  z-index 2
+  top 125%
+
+  @media (max-width: sm)
+    &.home-plus-menu
+      right -380%
+
+  & > .actionitem
+      color: var(--black)
+      &:hover
+          background: var(--grey)
+
+
+.rec-btn-trial
+  align-self: stretch
+  
+.rec-user-avatar
+  color white
+  cursor pointer
+  width 2.5rem
+  height: 100%
+  font-weight: 600
+  border-radius 50%
+  align-self: stretch
+  background var(--primary)
+
+  &:first-letter
+    pointer-events: none

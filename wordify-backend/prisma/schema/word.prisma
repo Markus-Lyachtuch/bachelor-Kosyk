@@ -1,0 +1,70 @@
+model Word {
+  id            Int   @id @default(autoincrement())
+  word          String    @unique @db.VarChar(255)
+  level         WordLevel?   @relation(fields: [levelId], references: [id])
+  levelId       Int?
+
+  languageId    Int
+  language      Language @relation(fields: [languageId], references: [id], onDelete: Cascade)
+  
+  meanings      Meaning[]
+  phonetics     Phonetic[]
+  examples      Example[]
+  userWords     UserWord[]
+
+  source        String
+  
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model WordLevel {
+  id        Int     @id @default(autoincrement())
+  level     String  @unique
+  words     Word[]
+  sets      Set[]
+}
+
+model Meaning {
+  id            Int       @id @default(autoincrement())
+  wordId        Int
+  word          Word      @relation(fields: [wordId], references: [id], onDelete: Cascade)
+  
+  partOfSpeech  String
+  definitions   String[]  
+  synonyms      String[]  @default([])
+  antonyms      String[]  @default([])
+  
+  source        String 
+  
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  
+  @@unique([wordId, partOfSpeech, source])
+  @@index([wordId])
+}
+
+model Phonetic {
+  id        Int     @id @default(autoincrement())
+  wordId    Int
+  word      Word    @relation(fields: [wordId], references: [id], onDelete: Cascade)
+  
+  text      String?
+  audioUrl  String? 
+  variant   String?
+  source    String
+  
+  @@unique([wordId, variant, source])
+  @@index([wordId])
+}
+
+model Example {
+  id        Int     @id @default(autoincrement())
+  wordId    Int
+  word      Word    @relation(fields: [wordId], references: [id], onDelete: Cascade)
+  
+  text      String  @db.Text
+  source    String
+  
+  @@index([wordId])
+}

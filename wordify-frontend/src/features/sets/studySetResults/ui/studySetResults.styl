@@ -1,0 +1,61 @@
+@import "../../../../app/styles/index.styl";
+
+.study-set-page
+    &-results
+        width 100%
+        padding 2rem
+        border-radius: 15px
+        max-width: 58.5625rem
+        box-shadow: var(--default-shadow)
+
+        header
+            width 100%
+            gap: .75rem
+
+            & > .icon-smile
+                fill: var(--green)
+            
+            & > .icon-smile-meh
+                fill: var(--yellow)
+
+            & > .icon-smile-sad
+                fill: var(--error)
+        
+        &-recommendation
+            margin-top 2rem
+            border-radius: 8px
+            padding: 1rem 2rem
+            background: var(--secondary-light)
+        
+        &-btn
+            width 100%
+            font-size: 1rem
+            padding: .75rem 0
+            border-radius: 8px
+            margin-top 1.125rem
+        
+        &-difficult-words
+
+            &-container
+                margin-top 1.25rem
+
+                &-item
+                    padding: 0 5px
+                    gap: 1rem
+
+                &-items
+                    margin-top 1.25rem
+                    max-height: 10rem
+                    overflow-y: auto
+                    gap: .675rem
+
+                    
+
+                header
+                    gap: .75rem
+                    padding-bottom: 5px
+                    border-bottom: 1px solid var(--black-25)
+
+            &-title
+                margin-top .5rem
+

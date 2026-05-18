@@ -1,0 +1,27 @@
+.modal
+    top: 0 
+    left: 0
+    position fixed
+    height 100%
+    width 100%
+    transition: all .5s ease-in-out
+
+    &-window
+        transition: all .5s ease-in-out
+        position: absolute
+        z-index 2
+        left: 50%
+        top: 50%
+
+        &-show
+            transform: translate(-50%, -50%) scale(1)
+        &-hide
+            transform: translate(-50%, -50%) scale(0)
+
+    &-overlay
+        background-color: var(--black-25)
+        position: fixed
+        height: 100%
+        width: 100%
+        left: 0
+        top: 0

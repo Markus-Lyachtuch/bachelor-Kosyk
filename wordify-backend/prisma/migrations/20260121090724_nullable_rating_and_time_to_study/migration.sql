@@ -1,0 +1,5 @@
+-- AlterTable
+ALTER TABLE "public"."Set" ALTER COLUMN "rating" DROP NOT NULL,
+ALTER COLUMN "rating" DROP DEFAULT,
+ALTER COLUMN "timeToStudy" DROP NOT NULL,
+ALTER COLUMN "timeToStudy" DROP DEFAULT;

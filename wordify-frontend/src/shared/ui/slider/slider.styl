@@ -1,0 +1,44 @@
+.slider
+  position: relative
+
+  &-prev
+    left: -3.0625rem
+    
+  &-next
+    right: -3.0625rem
+
+  &-no-images-message
+    width 100%
+    height: 9.5625rem
+
+.slider-viewport
+  overflow: hidden
+
+.slider-container
+  gap: 1rem
+  padding: 4px 0 4px 4px 
+  display: flex
+  touch-action: pan-y pinch-zoom
+
+.slider-slide
+  flex: 0 0 calc(12.8125rem - 4px)
+  transition: all .3s ease-in-out
+  border-radius: 8px
+  height: 9.5625rem
+  object-fit: cover
+  min-width: 0
+
+  &-selected
+    outline: none 
+    box-shadow: 0 0 0 4px var(--primary)
+
+.slider-btn
+    position: absolute
+    top: 50%
+    transform: translateY(-50%)
+    min-width: 2.25rem
+    min-height: 2.25rem
+    padding: .5rem
+    border-radius: 50%
+    background: var(--white)
+    border: 1px solid var(--black-15)

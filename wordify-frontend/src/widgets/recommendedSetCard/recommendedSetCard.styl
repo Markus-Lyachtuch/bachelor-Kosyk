@@ -1,0 +1,76 @@
+@import '../../app/styles/index.styl'
+
+$rec-primary = #5F3DC4
+
+.rec-set-card
+  flex 0 0 20.31vw
+  background white
+  border-radius 20px
+  overflow hidden
+  box-shadow 0 4px 15px rgba(0, 0, 0, 0.06)
+  border 1px solid #f0f0f0
+  scroll-snap-align start
+  transition all 0.2s ease
+
+  @media (min-width xxxl)
+    flex 0 0 21rem
+
+  @media (max-width: xxl)
+    flex 0 0 18rem
+
+  @media (max-width: lg)
+    flex 0 0 17rem
+    .rec-card-image-wrapper
+       height 6.5rem
+
+  &:hover
+    transform translateY(-5px)
+
+  .rec-card-image-wrapper
+    height 7.2rem
+    transition height 0.2s ease
+    img
+      width 100%
+      height 100%
+      object-fit cover
+
+  .rec-card-content
+    padding 16px
+    gap: 1.6875rem
+    h3
+      margin 0 0 12px 0
+      font-size 1rem
+      font-weight 600
+      white-space nowrap
+      overflow hidden
+      text-overflow ellipsis
+
+  .rec-card-footer
+    gap: 1rem
+    display flex
+    flex-wrap: wrap
+    align-items center
+    justify-content space-between
+    
+    .rec-stats
+      display flex
+      gap 8px
+      color #757575
+
+    .rec-btn-start
+      border none
+      flex: 1 
+      color var(--white)
+      padding .5rem 1.5rem
+      border-radius 24px
+      font-weight 600
+      cursor pointer
+      font-size: 1rem
+      max-width: 5.75rem
+
+      @media (min-width xxxl)
+        max-width: 6.45vw
+
+      @media (max-width lg)
+        max-width: none
+        

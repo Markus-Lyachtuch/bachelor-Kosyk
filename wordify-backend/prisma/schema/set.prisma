@@ -1,0 +1,98 @@
+model Set {
+    id            Int      @id @default(autoincrement())
+    name          String
+    setImage      String?
+    words         UserWord[]
+    languageId    Int
+    folderId      Int
+    updatedAt     DateTime @updatedAt
+    createdAt     DateTime @default(now())
+    rating        Float?
+    marks         SetRating[]
+    timeToStudy   Int?
+    userId        Int
+    levelId       Int?
+
+    settings        SetSettings?
+    userSetProgress UserSetProgress?
+    level           WordLevel?    @relation(fields: [levelId], references: [id], onDelete: Cascade)
+    user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+    language        Language @relation(fields: [languageId], references: [id], onDelete: Cascade)
+    folder          Folder   @relation(fields: [folderId], references: [id], onDelete: Cascade)
+    savedSet        SavedSet[]
+}
+
+model SetRating {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  setId     Int
+  rating    Float
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  set       Set      @relation(fields: [setId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, setId])
+}
+
+model SetSettings {
+  id                        Int       @id @default(autoincrement())
+  isForgettingCurveEnabled  Boolean   @default(false)
+  isAutoPlayAudioEnabled    Boolean   @default(false)
+  setId                    Int        @unique
+  set                      Set        @relation(fields: [setId], references: [id], onDelete: Cascade)
+}
+
+model UserWord {
+  id             Int      @id @default(autoincrement())
+  
+  setId          Int
+  set            Set      @relation(fields: [setId], references: [id], onDelete: Cascade)
+
+  wordId         Int?
+  word           Word?    @relation(fields: [wordId], references: [id]) 
+  
+  term           String
+  definition     String?
+  image          String?
+
+  status         LearningStatus @default(FLASH_CARD)
+  
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+enum LearningStatus {
+  FLASH_CARD
+  VARIANTS
+  CHECK_PRONUNCIATION
+  WRITE
+  LEARNED
+}
+
+model UserSetProgress {
+  id              Int       @id @default(autoincrement())
+  userId          Int
+  setId           Int       @unique
+  
+  currentStage    Int       @default(0) 
+  
+  nextReviewDate  DateTime?
+  
+
+  user            User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  set             Set       @relation(fields: [setId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, setId])
+}
+
+model SavedSet {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  setId     Int
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  set       Set      @relation(fields: [setId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, setId])
+}

@@ -1,0 +1,7 @@
+model Language {
+    id            Int   @id @default(autoincrement())
+    code          String @unique
+    name          String
+    words         Word[] 
+    sets          Set[]
+}

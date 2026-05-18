@@ -1,0 +1,1 @@
+export { SetImagesSlider } from "./setImagesSlider";

@@ -1,0 +1,121 @@
+@import "../../app/styles/index.styl"
+
+.created-set-card
+    width 100%
+    gap: .625rem
+    border-radius: 10px
+    background: var(--white)
+    transition: all .5s ease-in-out
+    padding: .875rem 2.1875rem 1.625rem 2.1875rem 
+    box-shadow: -2px -2px 12px 3px var(--black-15)
+
+    @media screen and (max-width: sm)
+        padding: .875rem 1rem 1.625rem 1rem
+
+    &-additional-info-btns
+        flex-wrap: wrap
+        row-gap: .625rem
+        column-gap: .5rem
+
+        @media screen and (max-width: lg)
+             & > *
+                flex: 1
+
+        & button
+            gap: .25rem
+            white-space: nowrap
+            transition: all .3s ease-in-out
+
+            @media screen and (max-width: lg)
+                width 100%
+
+            &:hover
+                & > .icon
+                    fill: var(--white) 
+
+            & > .icon
+                fill: var(--primary)
+
+            
+
+    &-selected
+        box-shadow: none
+
+    &-wrapper
+        width 100%
+        gap: 2.25rem
+        position: relative
+
+        &-selected
+            border-radius: 10px
+            box-shadow: -2px -2px 12px 3px var(--black-15)
+
+    &-image-info
+        transition: all .5s ease-in-out
+        position: relative
+        height: 0
+        &-selected
+            display flex
+            flex-direction: column
+            justify-content: space-between
+            gap: .5rem
+            position relative
+            height: 19.625rem
+            padding: 2.5625rem 4.75rem
+            transition: all .5s ease-in-out
+            background: var(--tertiary-light)
+            border-bottom-left-radius: 10px
+            border-bottom-right-radius: 10px
+
+            @media screen and (max-width: sm)
+                height: 24.625rem
+
+    &-vertical-line
+        width 1px
+        height 63.24px
+        background: var(--black-15)
+
+    &-content
+        flex-wrap: wrap
+        gap: 1.25rem
+
+        & > .input-container
+            flex: 1 0 10.125rem
+
+        & > .image-placeholder
+            flex: 0 0 6.25rem
+
+    &-term-input-container
+        z-index 5
+        position relative
+        flex: 1 0 10.125rem
+
+        & .actionitem
+            z-index: 5
+        
+        & .actionitem:hover
+            background: var(--primary)
+            color: var(--white)
+
+        & > .popover
+            max-height: 11.04rem
+            overflow-y: auto
+            top: 150%
+
+    &-definition-input-container
+        z-index 4
+        position relative
+        gap: 1.25rem
+        flex: 1 0 16.375rem
+
+        & > .relative
+            flex: 1
+
+        & .actionitem:hover
+            background: var(--primary)
+            color: var(--white)
+
+        & .popover
+            max-height: 11.04rem
+            overflow-y: auto
+            top: 150%

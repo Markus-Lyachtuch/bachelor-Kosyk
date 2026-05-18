@@ -1,0 +1,1 @@
+export { StatisticPiece } from './statisticPiece';

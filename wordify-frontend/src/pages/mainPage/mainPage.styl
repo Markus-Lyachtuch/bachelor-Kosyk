@@ -1,0 +1,109 @@
+@import '../../app/styles/index.styl'
+
+.main
+    gap: 3.8125rem
+    box-sizing: border-box
+    padding: 6.875rem 3.0625rem 6.875rem 10.125rem
+
+    @media screen and (max-width: xxl)
+        padding: 6.875rem 3.0625rem 6.875rem 6.0625rem
+    
+    @media screen and (max-width: xl)
+        padding: 6.875rem 2.0625rem 6.875rem 4.0625rem
+    
+    @media screen and (max-width: md)
+        padding: 6.875rem 1.0625rem 6.875rem 2.5625rem
+        gap: 2.8125rem
+    
+    @media screen and (max-width: sm)
+        align-items: center
+        min-height: 38.75rem
+        flex-direction: column
+        padding: 3.875rem 1.0625rem 3.875rem 1.0625rem
+
+    &-left
+        gap: 1rem
+        flex: 0 1 29.8125rem
+
+        &-btn
+            align-self: flex-start
+            @media screen and (max-width: xl)
+                font-size: .75rem
+            
+            @media screen and (max-width: sm)
+                align-self: center
+                
+        & &-title
+            @media screen and (max-width: xxl)
+                font-size: 2rem
+            @media screen and (max-width: xl)
+                font-size: 1.5rem
+
+        &-paragraph
+            max-width: 24.5rem
+
+            @media screen and (max-width: xl)
+                font-size: .75rem
+            
+            @media screen and (max-width: sm)
+                max-width: 20.5rem
+
+        &-header
+            gap: 0.875rem
+            font-weight: 600
+            font-size: 1.25rem
+
+            @media screen and (max-width: xl)
+                font-size: 1rem
+
+        @media screen and (max-width: sm)
+            flex: none
+            align-items: center
+            text-align: center
+
+    &-right
+        padding: 1.25rem
+        font-size: 1.5rem
+        border-radius: 40px
+        flex: 0 1 43.1875rem
+        min-height: 26rem
+        flex-direction: column
+        height: calc(100vh - 13.75rem)
+        background: var(--white-light)
+
+        @media screen and (max-width: xxl)
+            height: calc(100vh - 13.75rem)
+            flex: 0 1 36rem
+        
+        @media screen and (max-width: xl)
+            flex: 0 1 30rem
+            min-height: 22rem
+        
+        @media screen and (max-width: md)
+            flex: 0 1 25rem
+            min-height: 18rem
+            max-height: 23rem
+        
+        @media screen and (max-width: sm)
+            flex: none
+            min-height: auto
+            height: auto
+            max-height: none
+        
+        &-text
+            @media screen and (max-width: xl)
+                font-size: 1rem
+
+        &-img
+            @media screen and (max-width: xxl)
+                width 21.875rem
+                height 20.25rem
+            @media screen and (max-width: xl)
+                width 18.875rem
+                height 17.25rem
+            @media screen and (max-width: md)
+                width 15.875rem
+                height 14.25rem
+            @media screen and (max-width: sm)
+                width 57.2vw
+                height: 51.35vw

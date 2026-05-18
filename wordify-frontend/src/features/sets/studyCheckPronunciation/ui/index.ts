@@ -1,0 +1,1 @@
+export { StudyCheckPronunciation } from "./studyCheckPronunciation";

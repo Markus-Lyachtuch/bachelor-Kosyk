@@ -1,0 +1,47 @@
+@import "../../app/styles/index.styl" 
+
+.create-set-page
+    padding: 3.125rem 0
+    justify-content: space-between
+
+    @media screen and (max-width: md)
+        padding: 2.125rem 0
+
+    &-title-words-container
+        gap: 3.1875rem
+
+        @media screen and (max-width: sm)
+            gap: 1rem
+
+        & > button
+            align-self: center
+
+    &-words-container-wrapper
+        padding: 1rem
+        overflow-y: auto
+        overflow-x: clip
+        scroll-behavior: smooth
+        height: calc(100dvh - 6.25rem - 54px - 3.1875rem - 127.63px)
+
+        @media screen and (max-width: md)
+            height: calc(100dvh - 6.25rem - 54px - 3.1875rem - 180.63px)
+
+    &-words-container
+        gap: 1.25rem
+
+    &-btns
+        flex-wrap: wrap
+        gap: .5rem
+
+        @media screen and (max-width: sm)
+            & > .btn-ai
+                flex: 1 0 11.375rem
+
+        &-key-actions
+            gap: 2rem
+
+            @media screen and (max-width: sm)
+                flex: 1
+
+                & > button
+                    flex: 1 0 8.4375rem

@@ -1,0 +1,13 @@
+@import "../../app/styles/index.styl"
+
+.sidebar
+    flex-direction: column
+    user-select: none
+    display: flex
+    gap: 1.5rem
+
+    @media screen and (max-width: sm)
+        width 100%
+        overflow-x: auto
+        flex-direction: row
+        justify-content: space-around

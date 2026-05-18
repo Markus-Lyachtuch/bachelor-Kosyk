@@ -1,0 +1,9 @@
+model Folder {
+    id            Int      @id @default(autoincrement())
+    sets          Set[]
+    userId        Int
+    user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+    name          String
+    createdAt     DateTime @default(now())
+    updatedAt     DateTime @updatedAt
+}

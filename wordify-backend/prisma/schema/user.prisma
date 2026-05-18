@@ -1,0 +1,37 @@
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  name      String?
+  password  String?
+  role      UserRole @default(user)
+  provider  String   @default("local")
+  isVerified Boolean @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  googleId  String?  @unique
+  avatarUrl       String?
+  refreshTokens   RefreshToken[]
+  folders         Folder[]
+  sets            Set[]
+  savedSets       SavedSet[]
+  usage           UserUsage?
+  userSetProgress UserSetProgress[]
+  setRatings      SetRating[]
+}
+
+model UserUsage {
+  id              Int      @id @default(autoincrement())
+  userId          Int      @unique
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  aiGeneratedStoriesCount    Int      @default(0)
+  aiGeneratedImagesCount     Int      @default(0)
+  aiGeneratedWordsCount      Int      @default(0)
+  
+  lastResetAt  DateTime @default(now())
+}
+
+enum UserRole {
+  user
+  premium
+}

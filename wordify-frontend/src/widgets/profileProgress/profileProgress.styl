@@ -1,0 +1,35 @@
+@import "../../app/styles/index.styl"
+
+profileBorderRadius = 24px
+
+.profile-progress
+    gap: .375rem
+    padding: .5rem
+    flex: 0 0 9.56rem
+    background: var(--white)
+    border-radius: profileBorderRadius
+    box-shadow: 0 2px 10px 0px rgba(0,0,0,0.25)
+
+    @media (max-width sm)
+        flex: 0 1 auto
+
+    &-text
+        font-weight: 500
+        color: rgba(0,0,0,0.5)
+
+        @media (max-width sm)
+            font-size: .75rem
+
+    &-icon-container
+        width 100%
+        padding: .625rem
+        background: var(--secondary)
+        border-radius: profileBorderRadius
+
+        & > svg
+            @media (max-width sm)
+                width 1.5rem
+                height: 1.5rem
+
+        @media (max-width sm)
+            padding: .5rem

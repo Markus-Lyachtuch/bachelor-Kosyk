@@ -1,0 +1,77 @@
+@import '../../app/styles/index.styl'
+
+$border-color = #eaeaea
+
+.word-definition-card
+  display flex
+  align-items stretch
+  background #fff
+  border-radius 16px 
+  padding 0
+  box-shadow var(--box-shadow-light)
+  min-height 100px
+  margin 20px 0
+  border 1px solid rgba(0,0,0,0.02)
+  overflow hidden
+
+  @media (max-width: md)
+    flex-direction column
+    align-items center
+    text-align center
+    padding 20px
+
+  &-term
+    flex 0 0 180px
+    display flex
+    justify-content center
+    align-items center
+    font-weight 600
+    font-size 1.1rem
+    padding 12px
+    border-right 1px solid var(--extra-light-grey)
+
+    @media (max-width: md)
+      flex 0 0 auto
+      border-right none
+      border-bottom 1px solid var(--extra-light-grey)
+      width 100%
+      padding-bottom 15px
+      margin-bottom 15px
+
+  &-definition
+    flex 1
+    padding 12px 40px
+    display flex
+    align-items center
+    justify-content center
+    
+    @media (max-width: md)
+      padding 0
+      margin-bottom 15px
+
+    p
+      margin 0
+      font-size 1rem
+      line-height 1.4
+      font-weight 500
+
+  &-image
+      width 80px
+      height 80px
+      object-fit cover
+      border-radius 12px
+
+  &-image-container
+    flex 0 0 100px
+    padding 12px
+    display flex
+    align-items center
+    justify-content center
+
+    @media (max-width: md)
+      flex 0 0 auto
+      width 100px
+      height 100px
+      padding 0
+
+    

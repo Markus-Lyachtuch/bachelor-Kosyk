@@ -1,0 +1,40 @@
+@import "../../../../app/styles/index.styl"
+
+.study-set-page
+    &-write-mode
+        justify-content: space-between
+        display: flex
+        width 100%
+        gap: 1rem
+
+        span
+            font-size: 1.125rem
+            opacity .5
+        
+        img
+            border-radius: 20px
+            width 50%
+            object-fit: cover
+
+        &-block
+            gap: 2rem
+
+            &-definition
+                max-height: 8.125rem
+                font-size: 1.25rem
+                overflow-y: auto
+
+        &-container
+            max-width: 56.25rem
+            gap: 4.5625rem
+            width 100%
+
+        &-wrapper
+            box-shadow: var(--default-shadow)
+            border-radius: 15px
+            padding: 2rem
+            width 100%
+
+            & .input-container
+                margin-top 2.5rem
+

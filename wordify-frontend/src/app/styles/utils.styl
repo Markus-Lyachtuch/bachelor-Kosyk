@@ -1,0 +1,92 @@
+.flex-center
+    display: flex
+    justify-content: center
+    align-items: center
+
+.flex-between
+    display flex
+    justify-content: space-between
+
+.flex-between-center
+    display: flex
+    align-items: center
+    justify-content: space-between
+
+.flex-x-center
+    display: flex
+    justify-content: center
+
+.flex-x-end
+    display: flex
+    justify-content: flex-end
+
+.flex-y-center
+    display: flex
+    align-items: center
+    
+.flex-col
+    display: flex
+    flex-direction: column
+
+.self-stretch
+    align-self: stretch
+
+.text
+    &-sm
+        font-size: 0.875rem
+    &-center
+        text-align: center
+        
+    &-error
+        color: var(--error)
+    
+    &-truncate
+        white-space: nowrap
+        overflow: hidden
+        text-overflow: ellipsis
+
+.no-scrollbar
+    -ms-overflow-style: none
+    scrollbar-width: none
+  
+.no-scrollbar::-webkit-scrollbar
+    display: none
+
+.relative
+    position: relative
+
+.absolute-x-center
+    left: 50%
+    position: absolute
+    transform: translateX(-50%)
+
+.absolute-y-center
+    top: 50%
+    position: absolute
+    transform: translateY(-50%)
+
+.absolute-center
+    top: 50%
+    left: 50%
+    position: absolute
+    transform: translate(-50%, -50%)
+
+.hide
+    opacity 0
+    visibility: hidden
+    pointer-events: none
+
+.show
+    opacity 1
+    visibility: visible
+    pointer-events: auto
+
+.cursor-pointer
+    cursor: pointer
+
+.h-full
+    height: 100%
+
+.h-screen
+    height: 100dvh
+    

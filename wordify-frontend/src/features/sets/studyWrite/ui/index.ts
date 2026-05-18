@@ -1,0 +1,1 @@
+export { StudyWrite } from "./studyWrite";

@@ -1,0 +1,20 @@
+.switcher
+    padding: 2px
+    min-width 2.75rem
+    border-radius: 12px
+    align-self: flex-start
+    background: var(--grey)
+    transition: all .5s
+
+    &-active
+        background: var(--primary)
+
+        .switcher-ball
+            transform: translateX(20px)
+
+    &-ball
+        width 20px
+        height: 20px
+        border-radius: 50%
+        background: var(--white)
+        transition: all .5s

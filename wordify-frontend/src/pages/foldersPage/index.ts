@@ -1,0 +1,1 @@
+export { FoldersPage } from './foldersPage';

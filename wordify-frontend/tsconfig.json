@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "jsx": "react-jsx",
+    "baseUrl": ".",
+    "strict": true,
+    "paths": {
+      "app/*": ["src/app/*"],
+      "entities/*": ["src/entities/*"],
+      "features/*": ["src/features/*"],
+      "pages/*": ["src/pages/*"],
+      "shared/*": ["src/shared/*"],
+      "widgets/*": ["src/widgets/*"]
+    },
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true
+  },
+  "include": ["src", "vite.config.ts", "cypress"]
+}
